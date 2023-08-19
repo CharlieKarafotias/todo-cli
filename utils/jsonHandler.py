@@ -9,7 +9,11 @@ def empty_json():
     return resp
 
 
-def write_json_to_file(destination, json_str):
+def py_dict_to_json_str(data: dict):
+    return json.dumps(data)
+
+
+def write_json_to_file(destination: str, json_str: str):
     if os.path.isfile(destination):
         with open(destination, "w") as f:
             # Writing data to file
@@ -18,11 +22,12 @@ def write_json_to_file(destination, json_str):
         errors.print_err(f'ERR: no such file - {destination}')
 
 
-def create_new_json_file(destination: str, json_str):
+def create_new_json_file(destination: str, json_str: str):
     if not ('.' in destination and destination.split('.')[-1] == 'json'):
         destination += '.json'
 
     with open(destination, "w") as f:
         # Writing data to file
         f.write(json_str)
+
 
