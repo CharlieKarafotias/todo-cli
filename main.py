@@ -4,7 +4,7 @@ import argparse
 def main():
     parser = argparse.ArgumentParser(
         prog='Todo CLI',
-        description='A CLI for handling daily todo tasks and storing them in a YAML format',
+        description='A CLI for handling daily todo tasks and storing them in a JSON format',
         epilog='Developed in 2023 by Charlie Karafotias'
     )
     subparsers = parser.add_subparsers(
@@ -13,6 +13,9 @@ def main():
 
     # Init parser instantiation
     parser_init = subparsers.add_parser('init', help='Initialize TODO CLI')
+    # TODO: what arguments should init have?
+    # title of todo list for file name
+    # save location?
 
     # add new event parser instantiation
     parser_add = subparsers.add_parser('add', help='Add a new todo')
