@@ -21,7 +21,7 @@ def write_json_to_file(destination, json_str):
 def create_new_json_file(destination: str, json_str):
     if not ('.' in destination and destination.split('.')[-1] == 'json'):
         destination += '.json'
-    print(destination)
+
     with open(destination, "w") as f:
         # Writing data to file
         f.write(json_str)
