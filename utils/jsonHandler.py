@@ -5,12 +5,12 @@ import errors
 
 def empty_json():
     data = {}
-    resp = json.dumps(data)
+    resp = json.dumps(data, indent=4)
     return resp
 
 
 def py_dict_to_json_str(data: dict):
-    return json.dumps(data)
+    return json.dumps(data, indent=4)
 
 
 def write_json_to_file(destination: str, json_str: str):
