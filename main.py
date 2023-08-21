@@ -1,4 +1,5 @@
 import argparse
+import utils.init
 
 
 def main():
@@ -13,6 +14,17 @@ def main():
 
     # Init parser instantiation
     parser_init = subparsers.add_parser('init', help='Initialize TODO CLI')
+    parser_init.add_argument(
+        'destination',
+        type=str,
+        help='The location where the todo list should be saved',
+        required=True
+    )
+    parser_init.add_argument(
+        '-n',
+        '--name',
+        help='The name of the todo list. Will default to todo_list_YYYY_mm_dd if not specified'
+    )
     # TODO: what arguments should init have?
     # title of todo list for file name
     # save location?
@@ -20,12 +32,14 @@ def main():
     # add new event parser instantiation
     parser_add = subparsers.add_parser('add', help='Add a new todo')
 
+    # TODO: add function to main.py for changing lists (changes scope)
+
     args = parser.parse_args()
     print(args)
 
     match args.command:
         case 'init':
-            pass
+            print('inside init')
         case 'add':
             pass
 
