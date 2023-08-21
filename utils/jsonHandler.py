@@ -1,6 +1,7 @@
 import json
 import os
-import errors
+
+import utils.errors
 
 
 def empty_json():
@@ -19,7 +20,7 @@ def write_json_to_file(destination: str, json_str: str):
             # Writing data to file
             f.write(json_str)
     else:
-        errors.print_err(f'ERR: no such file - {destination}')
+        utils.errors.print_err(f'ERR: no such file - {destination}')
 
 
 def create_new_json_file(destination: str, json_str: str):

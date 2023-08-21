@@ -1,5 +1,5 @@
 import argparse
-import utils.init
+from utils import init
 
 
 def main():
@@ -17,17 +17,13 @@ def main():
     parser_init.add_argument(
         'destination',
         type=str,
-        help='The location where the todo list should be saved',
-        required=True
+        help='The location where the todo list should be saved'
     )
     parser_init.add_argument(
         '-n',
         '--name',
         help='The name of the todo list. Will default to todo_list_YYYY_mm_dd if not specified'
     )
-    # TODO: what arguments should init have?
-    # title of todo list for file name
-    # save location?
 
     # add new event parser instantiation
     parser_add = subparsers.add_parser('add', help='Add a new todo')
@@ -37,9 +33,11 @@ def main():
     args = parser.parse_args()
     print(args)
 
+    # TODO run test again and fix errors with name of json file and .env not adding new lines properly
+    # python3 ./main.py init . -n test_list
     match args.command:
         case 'init':
-            print('inside init')
+            init.new_json_file(args.destination, args.name)
         case 'add':
             pass
 
