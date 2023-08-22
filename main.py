@@ -33,8 +33,6 @@ def main():
     args = parser.parse_args()
     print(args)
 
-    # TODO run test again and fix errors with name of json file and .env not adding new lines properly
-    # python3 ./main.py init . -n test_list
     match args.command:
         case 'init':
             init.new_json_file(args.destination, args.name)

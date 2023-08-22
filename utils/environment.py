@@ -20,5 +20,5 @@ def add_new_list_to_env(key: str, value: str):
             f.write(f"{key.upper()}={value}\n")
     else:
         with open(env_file_path, "w") as f:
-            f.write(f'SCOPE={key.upper()}')
+            f.write(f'SCOPE={key.upper()}\n')
             f.write(f"{key.upper()}={value}\n")

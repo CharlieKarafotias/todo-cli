@@ -20,7 +20,7 @@ def new_json_file(destination, name=f'todo_list_{datetime.now().strftime("%Y_%m_
         name = format_file_name(name)
         # create new json file
         jsonHandler.create_new_json_file(
-            f'{destination}{name}',
+            os.path.join(destination, name),
             jsonHandler.py_dict_to_json_str(default.new_todo_list(name))
         )
 
