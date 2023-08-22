@@ -5,7 +5,8 @@ Functions needed to initialize the YAML file when the CLI is first ran
 import os
 from datetime import datetime
 
-from utils import jsonHandler, environment, errors
+from utils import environment, errors
+from handler import json_handler
 from schema import default
 
 
@@ -19,9 +20,9 @@ def new_json_file(destination, name=f'todo_list_{datetime.now().strftime("%Y_%m_
     if os.path.isdir(destination):
         name = format_file_name(name)
         # create new json file
-        jsonHandler.create_new_json_file(
+        json_handler.create_new_json_file(
             os.path.join(destination, name),
-            jsonHandler.py_dict_to_json_str(default.new_todo_list(name))
+            json_handler.py_dict_to_json_str(default.new_todo_list(name))
         )
 
         #  update env to remember where list is stored

@@ -1,5 +1,5 @@
 import argparse
-from utils import init
+from handler import init_handler
 
 
 def main():
@@ -29,13 +29,14 @@ def main():
     parser_add = subparsers.add_parser('add', help='Add a new todo')
 
     # TODO: add function to main.py for changing lists (changes scope)
+    # TODO: add export function with different software for export (should paste to clipboard automatically and notify)
 
     args = parser.parse_args()
     print(args)
 
     match args.command:
         case 'init':
-            init.new_json_file(args.destination, args.name)
+            init_handler.new_json_file(args.destination, args.name)
         case 'add':
             pass
 
